@@ -7,6 +7,7 @@ export const rudiments = [
     street_cred: 100,
     image:
       "https://vicfirth.com/cdn/shop/files/Single-Paradiddle_2048x.jpg?v=1687240208",
+    info: "the staple!",
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ export const rudiments = [
     complexity: 90,
     street_cred: 10,
     image: "https://vicfirth.com/cdn/shop/files/1_2048x.webp?v=1686140627",
+    info: "the easiest, but also the hardest!",
   },
   {
     id: 3,
@@ -24,5 +26,6 @@ export const rudiments = [
     street_cred: 38,
     image:
       "https://vicfirth.com/cdn/shop/files/Seven-Stroke-Roll-Triple_2048x.jpg?v=1687156800",
+    info: "fancy fancy!",
   },
 ];

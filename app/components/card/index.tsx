@@ -10,6 +10,7 @@ export type RudimentProps = {
   complexity: number;
   street_cred: number;
   image: string;
+  info: string;
 };
 
 const Card = () => {
@@ -21,6 +22,7 @@ const Card = () => {
       complexity: 0,
       street_cred: 0,
       image: "",
+      info: "",
     });
   const [currentIndex, setCurrentIndex] = React.useState<number>();
 
@@ -45,21 +47,23 @@ const Card = () => {
         complexity: 0,
         street_cred: 0,
         image: "",
+        info: "",
       }
     );
   };
 
   return (
-    <div className="flex flex-col min-h-[75%] min-w-[75%] border border-black">
-      <div className="flex-1 border border-blue-500">
+    <div className="flex flex-col min-h-[75%] w-[75%] min-w-96 max-w-[480px] border border-black ">
+      <div className="flex-1 bg-slate-700">
         <h1>{displayedRudiment.name}</h1>
       </div>
-      <div className="flex-1 border border-red-500">
+      <div className="flex-1 flex bg-[#e65797]">
         {displayedRudiment && (
           <Stats
             rating={displayedRudiment.drum_drills_rating}
             cred={displayedRudiment.street_cred}
             complexity={displayedRudiment.complexity}
+            info={displayedRudiment.info}
           />
         )}
       </div>
