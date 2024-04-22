@@ -53,8 +53,8 @@ const Card = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-[75%] w-[75%] min-w-96 max-w-[480px] border border-black ">
-      <div className="flex-1 bg-slate-700">
+    <div className="flex flex-col min-h-[75%] w-[75%] min-w-96 max-w-[480px] border border-black rounded-2xl">
+      <div className="flex-1 bg-slate-700 rounded-t-2xl">
         <h1>{displayedRudiment.name}</h1>
       </div>
       <div className="flex-1 flex bg-[#e65797]">

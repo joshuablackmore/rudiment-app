@@ -34,14 +34,14 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
   return (
     <div className="flex flex-col justify-between w-full h-full">
       <Tab.Group>
-        <Tab.List className="flex-0 space-x-12">
+        <Tab.List className="flex-0 justify-around flex">
           <Tab as={Fragment}>
             {({ selected }) => (
               <button
                 className={
                   selected
-                    ? "text-white border border-white rounded-sm px-2"
-                    : "text-black px-2"
+                    ? "text-white w-full "
+                    : "text-white w-full  bg-slate-700"
                 }
               >
                 Stats
@@ -53,8 +53,8 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
               <button
                 className={
                   selected
-                    ? "text-white border border-white rounded-sm px-2"
-                    : "text-black px-2"
+                    ? "text-white  w-full"
+                    : "text-white w-full bg-slate-700"
                 }
               >
                 Visual
@@ -66,8 +66,8 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
               <button
                 className={
                   selected
-                    ? "text-white border border-white rounded-sm px-2"
-                    : "text-black px-2"
+                    ? "text-white w-full"
+                    : "text-white w-full bg-slate-700"
                 }
               >
                 Info
@@ -75,7 +75,7 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
             )}
           </Tab>
         </Tab.List>
-        <Tab.Panels className="border border-black flex-1">
+        <Tab.Panels className=" flex-1 flex flex-col pt-4">
           <Tab.Panel>
             <div className="mt-12 space-y-12">
               <StatItem
