@@ -41,7 +41,7 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
                 className={
                   selected
                     ? "text-white w-full "
-                    : "text-white w-full  bg-slate-700"
+                    : "text-white w-full  bg-slate-500"
                 }
               >
                 Stats
@@ -54,7 +54,7 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
                 className={
                   selected
                     ? "text-white  w-full"
-                    : "text-white w-full bg-slate-700"
+                    : "text-white w-full bg-slate-500"
                 }
               >
                 Visual
@@ -67,7 +67,7 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
                 className={
                   selected
                     ? "text-white w-full"
-                    : "text-white w-full bg-slate-700"
+                    : "text-white w-full bg-slate-500"
                 }
               >
                 Info

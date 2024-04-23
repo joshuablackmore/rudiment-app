@@ -1,31 +1,32 @@
 export const rudiments = [
   {
     id: 1,
-    name: "paradiddle",
+    name: "Single Paradiddle",
     drum_drills_rating: 80,
     complexity: 20,
     street_cred: 100,
     image:
-      "https://vicfirth.com/cdn/shop/files/Single-Paradiddle_2048x.jpg?v=1687240208",
+      "https://drum-drills-rudiments.s3.eu-north-1.amazonaws.com/first-40/Single+paradiddle.png",
     info: "the staple!",
   },
   {
     id: 2,
-    name: "single stroke roll",
+    name: "Single Stroke Roll",
     drum_drills_rating: 20,
     complexity: 90,
     street_cred: 10,
-    image: "https://vicfirth.com/cdn/shop/files/1_2048x.webp?v=1686140627",
+    image:
+      "https://drum-drills-rudiments.s3.eu-north-1.amazonaws.com/first-40/Single+Stroke+Roll.png",
     info: "the easiest, but also the hardest!",
   },
   {
     id: 3,
-    name: "flyz",
+    name: "Swiss Army Triplet",
     drum_drills_rating: 40,
     complexity: 65,
     street_cred: 38,
     image:
-      "https://vicfirth.com/cdn/shop/files/Seven-Stroke-Roll-Triple_2048x.jpg?v=1687156800",
-    info: "fancy fancy!",
+      "https://drum-drills-rudiments.s3.eu-north-1.amazonaws.com/first-40/Swiss+Army+Triplets.png",
+    info: "Try adding another alternating note on the end and you have the 'single flammed mill'",
   },
 ];
