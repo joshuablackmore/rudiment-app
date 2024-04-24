@@ -26,7 +26,7 @@ export const rudiments = [
     complexity: 65,
     street_cred: 38,
     image:
-      "https://drum-drills-rudiments.s3.eu-north-1.amazonaws.com/first-40/Swiss+Army+Triplets.png",
+      "https://drum-drills-rudiments.s3.eu-north-1.amazonaws.com/first-40/Swiss+Army+Triplet.png",
     info: "Try adding another alternating note on the end and you have the 'single flammed mill'",
   },
 ];

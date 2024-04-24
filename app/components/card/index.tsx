@@ -1,7 +1,6 @@
 "use client";
 import * as React from "react";
 import Stats from "../stats";
-import { rudiments } from "../../data/rudiment-data";
 import RudimentImage from "../image-section";
 
 export type RudimentProps = {
@@ -14,7 +13,11 @@ export type RudimentProps = {
   info: string;
 };
 
-const Card = () => {
+type CardProps = {
+  rudiments: RudimentProps[];
+};
+
+const Card: React.FC<CardProps> = ({ rudiments }) => {
   const [displayedRudiment, setDisplayedRudiment] =
     React.useState<RudimentProps>({
       id: 0,
@@ -56,8 +59,13 @@ const Card = () => {
   return (
     <div className="flex flex-col min-h-[75%] w-[75%] min-w-96 max-w-[480px] border border-black rounded-2xl">
       <div className="flex-1 bg-slate-500 rounded-t-2xl">
-        <h1 className="pl-4">{displayedRudiment.name}</h1>
-        <RudimentImage url={displayedRudiment.image} />
+        <h1 data-testid="rudiment-name" className="pl-4">
+          {displayedRudiment.name}
+        </h1>
+        <RudimentImage
+          url={displayedRudiment.image}
+          altText={displayedRudiment.name}
+        />
       </div>
       <div className="flex-1 flex bg-[#e65797]">
         {displayedRudiment && (
