@@ -34,10 +34,16 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
     if (arr.length === 0) {
       return undefined;
     }
-    let randomIndex = Math.floor(Math.random() * arr.length);
-    if (randomIndex === currentIndex) {
-      randomIndex = randomIndex + 1;
-    }
+
+    // Generate a random index that is different from the current index
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * arr.length);
+    } while (randomIndex === currentIndex);
+
+    // Update currentIndex to avoid repeating the same rudiment
+    setCurrentIndex(randomIndex);
+
     return arr[randomIndex];
   };
 
@@ -77,7 +83,9 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
           />
         )}
       </div>
-      <button onClick={handleClick}>get rudiment</button>
+      <button data-testid="get-rudiment-button" onClick={handleClick}>
+        get rudiment
+      </button>
     </div>
   );
 };

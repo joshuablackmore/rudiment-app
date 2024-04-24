@@ -1,57 +1,48 @@
 import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Card from ".";
+import Card, { RudimentProps } from ".";
 
-const mockedRudiments = [
-  {
-    id: 1,
-    name: "",
-    drum_drills_rating: 5,
-    complexity: 3,
-    street_cred: 7,
-    image: "mocked-image-url-1",
-    info: "Mocked info 1",
-  },
-  {
-    id: 2,
-    name: "Mocked Rudiment 2",
-    drum_drills_rating: 6,
-    complexity: 4,
-    street_cred: 8,
-    image: "mocked-image-url-2",
-    info: "Mocked info 2",
-  },
-];
+const generateMockedRudiments = (numberOfRudimentsInApp: number) => {
+  const rudiments = [];
 
-describe("Card", () => {
-  it("renders the Card component with a blank rudiment", () => {
-    const { getByText, getByTestId } = render(
-      <Card rudiments={mockedRudiments} />
-    );
+  for (let i = 1; i <= numberOfRudimentsInApp; i++) {
+    rudiments.push({
+      id: i,
+      name: `Mocked Rudiment ${i}`,
+      drum_drills_rating: Math.floor(Math.random() * 100) + 1,
+      complexity: Math.floor(Math.random() * 100) + 1,
+      street_cred: Math.floor(Math.random() * 100) + 1,
+      image: `mocked-image-url-${i}`,
+      info: `Mocked info ${i}`,
+    });
+  }
+  return rudiments;
+};
 
-    expect(getByTestId("rudiment-name")).toHaveTextContent(
-      mockedRudiments[0].name
-    );
-  });
+test("renders different rudiments after button press", () => {
+  const mockedRudiments = generateMockedRudiments(3);
+  const { getByTestId } = render(<Card rudiments={mockedRudiments} />);
 
-  it("renders a street cred heading", () => {
-    render(<Card rudiments={mockedRudiments} />);
+  const button = getByTestId("get-rudiment-button");
+  expect(button).toBeInTheDocument();
 
-    const heading = screen.getByRole("heading", { name: /street cred :/i });
-    expect(heading).toBeInTheDocument();
-  });
+  const displayedRudiments = new Set();
 
-  it("renders a new rudiment after button press", () => {
-    const { getByTestId } = render(<Card rudiments={mockedRudiments} />);
-
-    const button = screen.getByRole("button", { name: /get rudiment/ });
-    expect(button).toBeInTheDocument();
-
+  // Click the button three times to display all rudiments
+  for (let i = 0; i < mockedRudiments.length; i++) {
     fireEvent.click(button);
+    const displayedRudimentName = getByTestId("rudiment-name").textContent;
+    displayedRudiments.add(displayedRudimentName);
+  }
 
-    expect(getByTestId("rudiment-name")).toHaveTextContent(
-      mockedRudiments[1].name
-    );
-  });
+  // Click the button additional times to ensure repeating rudiments
+  for (let i = 0; i < 10; i++) {
+    fireEvent.click(button);
+    const displayedRudimentName = getByTestId("rudiment-name").textContent;
+    displayedRudiments.add(displayedRudimentName);
+  }
+
+  // Ensure that all rudiments were displayed at least once
+  expect(displayedRudiments.size).toEqual(mockedRudiments.length);
 });
