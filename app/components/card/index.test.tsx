@@ -20,29 +20,47 @@ const generateMockedRudiments = (numberOfRudimentsInApp: number) => {
   return rudiments;
 };
 
-test("renders different rudiments after button press", () => {
-  const mockedRudiments = generateMockedRudiments(3);
-  const { getByTestId } = render(<Card rudiments={mockedRudiments} />);
+const initialRudiment: RudimentProps[] = [
+  {
+    id: 0,
+    name: "",
+    drum_drills_rating: 0,
+    complexity: 0,
+    street_cred: 0,
+    image: "",
+    info: "",
+  },
+];
 
-  const button = getByTestId("get-rudiment-button");
-  expect(button).toBeInTheDocument();
+describe("Card", () => {
+  it("renders an blank rudiment", () => {
+    render(<Card rudiments={initialRudiment} />);
+  });
 
-  const displayedRudiments = new Set();
+  it("renders different rudiments after button press", () => {
+    const mockedRudiments = generateMockedRudiments(3);
+    const { getByTestId } = render(<Card rudiments={mockedRudiments} />);
 
-  // Click the button three times to display all rudiments
-  for (let i = 0; i < mockedRudiments.length; i++) {
-    fireEvent.click(button);
-    const displayedRudimentName = getByTestId("rudiment-name").textContent;
-    displayedRudiments.add(displayedRudimentName);
-  }
+    const button = getByTestId("get-rudiment-button");
+    expect(button).toBeInTheDocument();
 
-  // Click the button additional times to ensure repeating rudiments
-  for (let i = 0; i < 10; i++) {
-    fireEvent.click(button);
-    const displayedRudimentName = getByTestId("rudiment-name").textContent;
-    displayedRudiments.add(displayedRudimentName);
-  }
+    const displayedRudiments = new Set();
 
-  // Ensure that all rudiments were displayed at least once
-  expect(displayedRudiments.size).toEqual(mockedRudiments.length);
+    // Click the button three times to display all rudiments
+    for (let i = 0; i < mockedRudiments.length; i++) {
+      fireEvent.click(button);
+      const displayedRudimentName = getByTestId("rudiment-name").textContent;
+      displayedRudiments.add(displayedRudimentName);
+    }
+
+    // Click the button additional times to ensure repeating rudiments
+    for (let i = 0; i < 10; i++) {
+      fireEvent.click(button);
+      const displayedRudimentName = getByTestId("rudiment-name").textContent;
+      displayedRudiments.add(displayedRudimentName);
+    }
+
+    // Ensure that all rudiments were displayed at least once
+    expect(displayedRudiments.size).toEqual(mockedRudiments.length);
+  });
 });

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Card from "./components/card";
 import { rudiments } from "./data/rudiment-data";
 

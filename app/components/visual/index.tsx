@@ -15,6 +15,7 @@ const VisualStats: React.FC<VisualStatsProps> = ({
   return (
     <div className="flex items-center justify-center h-full">
       <CircularProgress
+        data-testId="progress-1"
         className="relative"
         size={200}
         value={cred}
@@ -25,6 +26,7 @@ const VisualStats: React.FC<VisualStatsProps> = ({
       />
 
       <CircularProgress
+        data-testId="progress-2"
         className="absolute"
         size={150}
         value={complexity}
@@ -34,6 +36,7 @@ const VisualStats: React.FC<VisualStatsProps> = ({
         }}
       />
       <CircularProgress
+        data-testId="progress-3"
         className="absolute"
         size={105}
         value={rating}
