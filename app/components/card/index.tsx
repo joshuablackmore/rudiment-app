@@ -63,7 +63,7 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
   };
 
   return (
-    <div className="flex flex-col min-h-[75%] w-[75%] min-w-96 max-w-[480px] border border-black rounded-2xl">
+    <div className="flex flex-col h-full w-full max-w-[400px] max-h-[800px] border border-black rounded-2xl">
       <div className="flex-1 bg-slate-500 rounded-t-2xl">
         <h1 data-testid="rudiment-name" className="pl-4">
           {displayedRudiment.name}

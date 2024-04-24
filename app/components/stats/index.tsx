@@ -25,7 +25,7 @@ const StatItem: React.FC<StatItemProps> = ({ value, label, className }) => {
   return (
     <div className={classNames}>
       <h1>{label} :</h1>
-      <h1 data-testid="stats-value">{value}</h1>
+      <h1>{value}</h1>
     </div>
   );
 };

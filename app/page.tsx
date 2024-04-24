@@ -3,7 +3,7 @@ import { rudiments } from "./data/rudiment-data";
 
 export default function Home() {
   return (
-    <main className="flex h-screen flex-col items-center justify-center">
+    <main className="flex h-screen flex-col items-center justify-center lg:flex-row ">
       <Card rudiments={rudiments} />
     </main>
   );
