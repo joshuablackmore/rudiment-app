@@ -17,15 +17,20 @@ type StatItemProps = {
 
 const StatItem: React.FC<StatItemProps> = ({ value, label, className }) => {
   const defaultClasses =
-    "flex justify-between text-lg text-white px-12 py-1 rounded-r-3xl w-full";
+    "flex justify-between text-lg text-slate-700 px-12 py-1 rounded-r-3xl";
+  const valueDefaultClasses = "underline underline-offset-4 font-bold";
 
-  const classNames = className
+  const labelClassNames = className
     ? `${defaultClasses} ${className}`
     : defaultClasses;
+
+  const valueClassNames = className
+    ? `${valueDefaultClasses} ${className}`
+    : valueDefaultClasses;
   return (
-    <div className={classNames}>
+    <div className={labelClassNames}>
       <h1>{label} :</h1>
-      <h1>{value}</h1>
+      <h1 className={valueClassNames}>{value}</h1>
     </div>
   );
 };
@@ -75,9 +80,9 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
             )}
           </Tab>
         </Tab.List>
-        <Tab.Panels className=" flex-1 flex flex-col pt-4">
+        <Tab.Panels className=" flex-1 flex flex-col">
           <Tab.Panel>
-            <div className="mt-12 space-y-12">
+            <div className="mt-12 flex flex-col gap-12 pt-6">
               <StatItem
                 label="Street Cred"
                 value={cred}

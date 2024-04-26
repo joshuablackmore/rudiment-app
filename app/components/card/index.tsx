@@ -66,30 +66,41 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
   };
 
   return (
-    <div className="flex flex-col h-full w-full max-w-[400px] max-h-[800px] border border-black rounded-2xl">
-      <div className="flex-1 bg-slate-700 rounded-t-2xl">
-        <h1 data-testid="rudiment-name" className="pl-4">
-          {displayedRudiment.name}
-        </h1>
-        <RudimentImage
-          url={displayedRudiment.image_white}
-          altText={displayedRudiment.name}
-        />
-      </div>
-      <div className="flex-1 flex bg-[#e65797]">
-        {displayedRudiment && (
-          <Stats
-            rating={displayedRudiment.drum_drills_rating}
-            cred={displayedRudiment.street_cred}
-            complexity={displayedRudiment.complexity}
-            info={displayedRudiment.info}
+    <>
+      <div className="flex flex-col h-full w-full max-w-[400px] max-h-[800px] border border-black rounded-2xl">
+        <div className="flex-1 bg-slate-700 rounded-t-2xl">
+          <h1
+            data-testid="rudiment-name"
+            className="pl-4 text-white font-semibold pt-2"
+          >
+            {displayedRudiment.name}
+          </h1>
+          <RudimentImage
+            url={displayedRudiment.image_white}
+            altText={displayedRudiment.name}
           />
-        )}
+        </div>
+        <div className="flex-1 flex bg-[#e65797] rounded-b-2xl">
+          {displayedRudiment && (
+            <Stats
+              rating={displayedRudiment.drum_drills_rating}
+              cred={displayedRudiment.street_cred}
+              complexity={displayedRudiment.complexity}
+              info={displayedRudiment.info}
+            />
+          )}
+        </div>
       </div>
-      <button data-testid="get-rudiment-button" onClick={handleClick}>
-        get rudiment
-      </button>
-    </div>
+      <div>
+        <button
+          data-testid="get-rudiment-button"
+          onClick={handleClick}
+          className="bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+        >
+          get rudiment
+        </button>
+      </div>
+    </>
   );
 };
 
