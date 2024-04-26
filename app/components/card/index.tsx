@@ -65,6 +65,13 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
     );
   };
 
+  const handleListClick = (id: number) => {
+    const rud = rudiments.filter((r) => r.id === id);
+    if (rud.length > 0) {
+      setDisplayedRudiment(rud[0]);
+    }
+  };
+
   return (
     <>
       <div className="flex flex-col h-full w-full max-w-[400px] max-h-[800px] border border-black rounded-2xl">
@@ -99,6 +106,18 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
         >
           get rudiment
         </button>
+      </div>
+      <div>
+        <ul>
+          {rudiments.map((rud, index) => (
+            <h1
+              className="hover:text-blue-500"
+              onClick={() => handleListClick(rud.id)}
+            >
+              {rud.name}
+            </h1>
+          ))}
+        </ul>
       </div>
     </>
   );
