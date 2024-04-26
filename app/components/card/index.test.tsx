@@ -13,7 +13,8 @@ const generateMockedRudiments = (numberOfRudimentsInApp: number) => {
       drum_drills_rating: Math.floor(Math.random() * 100) + 1,
       complexity: Math.floor(Math.random() * 100) + 1,
       street_cred: Math.floor(Math.random() * 100) + 1,
-      image: `mocked-image-url-${i}`,
+      image_white: `mocked-image-white-url-${i}`,
+      image_black: `mocked-image-black-url-${i}`,
       info: `Mocked info ${i}`,
     });
   }
@@ -27,7 +28,8 @@ const initialRudiment: RudimentProps[] = [
     drum_drills_rating: 0,
     complexity: 0,
     street_cred: 0,
-    image: "",
+    image_white: "",
+    image_black: "",
     info: "",
   },
 ];

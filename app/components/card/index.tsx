@@ -9,7 +9,8 @@ export type RudimentProps = {
   drum_drills_rating: number;
   complexity: number;
   street_cred: number;
-  image: string;
+  image_white: string;
+  image_black: string;
   info: string;
 };
 
@@ -25,7 +26,8 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
       drum_drills_rating: 0,
       complexity: 0,
       street_cred: 0,
-      image: "",
+      image_white: "",
+      image_black: "",
       info: "",
     });
   const [currentIndex, setCurrentIndex] = React.useState<number>();
@@ -56,7 +58,8 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
         drum_drills_rating: 0,
         complexity: 0,
         street_cred: 0,
-        image: "",
+        image_white: "",
+        image_black: "",
         info: "",
       }
     );
@@ -64,12 +67,12 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
 
   return (
     <div className="flex flex-col h-full w-full max-w-[400px] max-h-[800px] border border-black rounded-2xl">
-      <div className="flex-1 bg-slate-500 rounded-t-2xl">
+      <div className="flex-1 bg-slate-700 rounded-t-2xl">
         <h1 data-testid="rudiment-name" className="pl-4">
           {displayedRudiment.name}
         </h1>
         <RudimentImage
-          url={displayedRudiment.image}
+          url={displayedRudiment.image_white}
           altText={displayedRudiment.name}
         />
       </div>
