@@ -7,27 +7,48 @@ type RudimentListProps = {
   toggleSlider: () => void;
 };
 
+const getFilteredRudiments = (query: string, items: RudimentProps[]) => {
+  if (!query) {
+    return items;
+  }
+  return items.filter((ruds) =>
+    ruds.name.toLowerCase().includes(query.toLocaleLowerCase())
+  );
+};
+
 const RudimentList: React.FC<RudimentListProps> = ({
   rudiments,
   handleListClick,
   toggleSlider,
 }) => {
+  const [query, setQuery] = React.useState("");
+
+  const filteredRudiments = getFilteredRudiments(query, rudiments);
+
   return (
     <div className="flex flex-col">
-      <div className="flex self-end m-4 mt-6">
+      <div className="flex self-end m-4 mt-12">
         <h1 onClick={toggleSlider} className="hover:text-blue-500">
           Close
         </h1>
       </div>
       <div className="mt-12 self-center">
+        <input
+          type="text"
+          className="mb-4 text-black"
+          placeholder="search"
+          onChange={(e) => setQuery(e.target.value)}
+        />
         <ul>
-          {rudiments.map((rud, index) => (
-            <h1
-              className="hover:text-blue-500"
-              onClick={() => handleListClick(rud.id)}
-            >
-              {rud.name}
-            </h1>
+          {filteredRudiments.map((rud, index) => (
+            <li key={index}>
+              <h1
+                className="hover:text-blue-500"
+                onClick={() => handleListClick(rud.id)}
+              >
+                {rud.name}
+              </h1>
+            </li>
           ))}
         </ul>
       </div>

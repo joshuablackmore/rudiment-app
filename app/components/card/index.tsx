@@ -87,7 +87,7 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
   return (
     <>
       <button className="flex self-end mr-4" onClick={toggleSlider}>
-        open list
+        Search all rudiments
       </button>
       <div className="flex flex-col h-full w-full max-w-[400px] max-h-[800px] border border-black rounded-2xl">
         <div className="flex-1 bg-slate-700 rounded-t-2xl">
