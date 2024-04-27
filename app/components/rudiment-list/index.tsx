@@ -28,14 +28,17 @@ const RudimentList: React.FC<RudimentListProps> = ({
   return (
     <div className="flex flex-col">
       <div className="flex self-end m-4 mt-12">
-        <h1 onClick={toggleSlider} className="hover:text-blue-500">
+        <h1
+          onClick={toggleSlider}
+          className="hover:text-[#e65797] cursor-pointer"
+        >
           Close
         </h1>
       </div>
       <div className="mt-12 self-center">
         <input
           type="text"
-          className="mb-4 text-black"
+          className="mb-4 text-black rounded-sm"
           placeholder="search"
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -43,7 +46,7 @@ const RudimentList: React.FC<RudimentListProps> = ({
           {filteredRudiments.map((rud, index) => (
             <li key={index}>
               <h1
-                className="hover:text-blue-500"
+                className="hover:text-[#e65797] cursor-pointer"
                 onClick={() => handleListClick(rud.id)}
               >
                 {rud.name}

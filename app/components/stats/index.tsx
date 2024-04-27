@@ -104,7 +104,7 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
             <VisualStats cred={cred} rating={rating} complexity={complexity} />
           </Tab.Panel>
           <Tab.Panel className="h-full">
-            <div className="flex items-center justify-center  h-full">
+            <div className="flex items-center justify-center h-full p-4">
               <h1 className="text-white text-xl">{info}</h1>
             </div>
           </Tab.Panel>
