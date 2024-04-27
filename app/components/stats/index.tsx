@@ -35,50 +35,34 @@ const StatItem: React.FC<StatItemProps> = ({ value, label, className }) => {
   );
 };
 
+const tabs = ["Stats", "Visual", "Notes"];
+
+const TabButtons = () => {
+  return tabs.map((tab, index) => (
+    <Tab as={Fragment}>
+      {({ selected }) => (
+        <div className="w-full" key={index}>
+          <button
+            className={
+              selected
+                ? "text-white w-full justify-around flex"
+                : "text-white w-full justify-center flex  bg-slate-700 hover:text-[#e65797]"
+            }
+          >
+            {tab}
+          </button>
+        </div>
+      )}
+    </Tab>
+  ));
+};
+
 const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
   return (
     <div className="flex flex-col justify-between w-full h-full">
       <Tab.Group>
-        <Tab.List className="flex-0 justify-around flex">
-          <Tab as={Fragment}>
-            {({ selected }) => (
-              <button
-                className={
-                  selected
-                    ? "text-white w-full "
-                    : "text-white w-full  bg-slate-700"
-                }
-              >
-                Stats
-              </button>
-            )}
-          </Tab>
-          <Tab as={Fragment}>
-            {({ selected }) => (
-              <button
-                className={
-                  selected
-                    ? "text-white  w-full"
-                    : "text-white w-full bg-slate-700"
-                }
-              >
-                Visual
-              </button>
-            )}
-          </Tab>
-          <Tab as={Fragment}>
-            {({ selected }) => (
-              <button
-                className={
-                  selected
-                    ? "text-white w-full"
-                    : "text-white w-full bg-slate-700"
-                }
-              >
-                Info
-              </button>
-            )}
-          </Tab>
+        <Tab.List className="flex justify-around">
+          <TabButtons />
         </Tab.List>
         <Tab.Panels className=" flex-1 flex flex-col">
           <Tab.Panel>

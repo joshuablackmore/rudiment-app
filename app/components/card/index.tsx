@@ -86,7 +86,10 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
 
   return (
     <>
-      <button className="flex self-end mr-4" onClick={toggleSlider}>
+      <button
+        className="flex self-end mr-4 hover:text-[#e65797]"
+        onClick={toggleSlider}
+      >
         Search all rudiments
       </button>
       <div className="shadow-xl flex flex-col h-full w-full max-w-[400px] max-h-[800px] border border-black rounded-2xl">
