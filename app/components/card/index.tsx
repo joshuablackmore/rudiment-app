@@ -2,6 +2,7 @@
 import * as React from "react";
 import Stats from "../stats";
 import RudimentImage from "../image-section";
+import RudimentList from "../rudiment-list";
 
 export type RudimentProps = {
   id: number;
@@ -70,10 +71,24 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
     if (rud.length > 0) {
       setDisplayedRudiment(rud[0]);
     }
+    setSlider(false);
+  };
+
+  const [slider, setSlider] = React.useState(false);
+
+  const toggleSlider = () => {
+    if (!slider) {
+      setSlider(true);
+    } else if (slider) {
+      setSlider(false);
+    }
   };
 
   return (
     <>
+      <button className="flex self-end mr-4" onClick={toggleSlider}>
+        open list
+      </button>
       <div className="flex flex-col h-full w-full max-w-[400px] max-h-[800px] border border-black rounded-2xl">
         <div className="flex-1 bg-slate-700 rounded-t-2xl">
           <h1
@@ -104,21 +119,19 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
           onClick={handleClick}
           className="bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
         >
-          get rudiment
+          Random Rudiment!
         </button>
       </div>
-      <div>
-        <ul>
-          {rudiments.map((rud, index) => (
-            <h1
-              className="hover:text-blue-500"
-              onClick={() => handleListClick(rud.id)}
-            >
-              {rud.name}
-            </h1>
-          ))}
-        </ul>
-      </div>
+
+      {slider && (
+        <div className="absolute min-h-screen w-full bg-slate-700 text-white">
+          <RudimentList
+            handleListClick={handleListClick}
+            rudiments={rudiments}
+            toggleSlider={toggleSlider}
+          />
+        </div>
+      )}
     </>
   );
 };
