@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export type RudimentImageProps = {
@@ -6,8 +7,15 @@ export type RudimentImageProps = {
 };
 const RudimentImage: React.FC<RudimentImageProps> = ({ url, altText }) => {
   return (
-    <div className="flex items-center justify-center h-full">
-      <img src={url} alt={altText} />
+    <div className="relative h-[50%]">
+      <Image
+        src={url}
+        alt={altText}
+        fill={true}
+        objectFit="contain"
+        data-testid="images"
+        className=""
+      />
     </div>
   );
 };

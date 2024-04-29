@@ -32,7 +32,7 @@ describe("Stats section", () => {
     expect(statsButton).toBeInTheDocument();
     const visualsButton = screen.getByRole("tab", { name: /Visual/i });
     expect(visualsButton).toBeInTheDocument();
-    const infoButton = screen.getByRole("tab", { name: /Info/i });
+    const infoButton = screen.getByRole("tab", { name: /Notes/i });
     expect(infoButton).toBeInTheDocument();
   });
   it("renders stats headings", () => {

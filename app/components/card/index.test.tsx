@@ -13,8 +13,8 @@ const generateMockedRudiments = (numberOfRudimentsInApp: number) => {
       drum_drills_rating: Math.floor(Math.random() * 100) + 1,
       complexity: Math.floor(Math.random() * 100) + 1,
       street_cred: Math.floor(Math.random() * 100) + 1,
-      image_white: `mocked-image-white-url-${i}`,
-      image_black: `mocked-image-black-url-${i}`,
+      image_white: `https://mocked-image-white-url-${i}`,
+      image_black: `https://mocked-image-black-url-${i}`,
       info: `Mocked info ${i}`,
     });
   }
@@ -40,7 +40,7 @@ describe("Card", () => {
   });
 
   it("renders different rudiments after button press", () => {
-    const mockedRudiments = generateMockedRudiments(3);
+    const mockedRudiments = generateMockedRudiments(8);
     const { getByTestId } = render(<Card rudiments={mockedRudiments} />);
 
     const button = getByTestId("get-rudiment-button");

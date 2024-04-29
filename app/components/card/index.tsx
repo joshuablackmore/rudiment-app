@@ -93,13 +93,14 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
         Search all rudiments
       </button>
       <div className="shadow-xl flex flex-col h-full w-full max-w-[400px] max-h-[800px] border border-black rounded-2xl">
-        <div className="flex-1 bg-slate-700 rounded-t-2xl">
+        <div className="flex-1 bg-slate-700 rounded-t-2xl flex flex-col">
           <h1
             data-testid="rudiment-name"
-            className="pl-4 text-white font-semibold pt-2"
+            className="pl-4 text-white font-semibold pb-16 pt-4 "
           >
             {displayedRudiment.name}
           </h1>
+
           <RudimentImage
             url={displayedRudiment.image_white}
             altText={displayedRudiment.name}
