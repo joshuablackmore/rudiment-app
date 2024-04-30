@@ -26,15 +26,7 @@ const RudimentList: React.FC<RudimentListProps> = ({
   const filteredRudiments = getFilteredRudiments(query, rudiments);
 
   return (
-    <div className="flex flex-col">
-      <div className="flex self-end m-4 mt-12">
-        <h1
-          onClick={toggleSlider}
-          className="hover:text-[#e65797] cursor-pointer"
-        >
-          Close
-        </h1>
-      </div>
+    <div className="flex flex-col mt-24">
       <div className="mt-12 self-center">
         <input
           type="text"

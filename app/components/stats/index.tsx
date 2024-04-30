@@ -17,8 +17,9 @@ type StatItemProps = {
 
 const StatItem: React.FC<StatItemProps> = ({ value, label, className }) => {
   const defaultClasses =
-    "flex justify-between text-lg text-slate-700 px-12 py-1 rounded-r-3xl";
-  const valueDefaultClasses = "underline underline-offset-4 font-bold";
+    "flex justify-between text-lg text-slate-900 px-12 py-1 rounded-r-3xl";
+  const valueDefaultClasses =
+    "underline underline-offset-4 font-bold text-slate-900  rounded-md";
 
   const labelClassNames = className
     ? `${defaultClasses} ${className}`
@@ -88,8 +89,8 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
             <VisualStats cred={cred} rating={rating} complexity={complexity} />
           </Tab.Panel>
           <Tab.Panel className="h-full">
-            <div className="flex items-center justify-center h-full p-4">
-              <h1 className="text-white text-xl">{info}</h1>
+            <div className="flex h-full items-center p-4">
+              <h1 className="text-white text-xl ">{info}</h1>
             </div>
           </Tab.Panel>
         </Tab.Panels>

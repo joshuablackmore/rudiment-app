@@ -3,6 +3,7 @@ import * as React from "react";
 import Stats from "../stats";
 import RudimentImage from "../image-section";
 import RudimentList from "../rudiment-list";
+import { AnimatePresence, motion } from "framer-motion";
 
 export type RudimentProps = {
   id: number;
@@ -86,12 +87,6 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
 
   return (
     <>
-      <button
-        className="flex self-end mr-4 hover:text-[#e65797]"
-        onClick={toggleSlider}
-      >
-        Search all rudiments
-      </button>
       <div className="shadow-xl flex flex-col h-full w-full max-w-[400px] max-h-[800px] border border-black rounded-2xl">
         <div className="flex-1 bg-slate-700 rounded-t-2xl flex flex-col">
           <h1
@@ -125,17 +120,39 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
         >
           Random Rudiment!
         </button>
+        {slider ? (
+          <button
+            className="bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+            onClick={toggleSlider}
+          >
+            Close all rudiments
+          </button>
+        ) : (
+          <button
+            className="bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+            onClick={toggleSlider}
+          >
+            Search all rudiments
+          </button>
+        )}
       </div>
-
-      {slider && (
-        <div className="absolute min-h-screen w-full bg-slate-700 text-white">
-          <RudimentList
-            handleListClick={handleListClick}
-            rudiments={rudiments}
-            toggleSlider={toggleSlider}
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {slider && (
+          <motion.div
+            initial={{ y: -1000 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.3 }}
+            exit={{ y: -1000 }}
+            className="absolute h-[80%] w-full top-0 bg-slate-700 text-white"
+          >
+            <RudimentList
+              handleListClick={handleListClick}
+              rudiments={rudiments}
+              toggleSlider={toggleSlider}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

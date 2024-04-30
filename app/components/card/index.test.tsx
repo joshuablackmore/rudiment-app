@@ -40,7 +40,7 @@ describe("Card", () => {
   });
 
   it("renders different rudiments after button press", () => {
-    const mockedRudiments = generateMockedRudiments(8);
+    const mockedRudiments = generateMockedRudiments(7);
     const { getByTestId } = render(<Card rudiments={mockedRudiments} />);
 
     const button = getByTestId("get-rudiment-button");

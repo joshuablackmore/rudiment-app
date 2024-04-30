@@ -5,17 +5,19 @@ export type RudimentImageProps = {
   url: string;
   altText: string;
 };
+
 const RudimentImage: React.FC<RudimentImageProps> = ({ url, altText }) => {
   return (
-    <div className="relative h-[50%]">
-      <Image
-        src={url}
-        alt={altText}
-        fill={true}
-        objectFit="contain"
-        data-testid="images"
-        className=""
-      />
+    <div className="relative h-[50%]" data-testid="images">
+      {url && (
+        <Image
+          src={url}
+          alt={altText}
+          fill={true}
+          objectFit="contain"
+          className=""
+        />
+      )}
     </div>
   );
 };
