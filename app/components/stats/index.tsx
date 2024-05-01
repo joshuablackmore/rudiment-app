@@ -60,14 +60,14 @@ const TabButtons = () => {
 
 const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
   return (
-    <div className="flex flex-col justify-between w-full h-full">
+    <div className="flex flex-col w-full h-full">
       <Tab.Group>
-        <Tab.List className="flex justify-around">
+        <Tab.List className="flex">
           <TabButtons />
         </Tab.List>
-        <Tab.Panels className=" flex-1 flex flex-col">
+        <Tab.Panels className="flex flex-col h-full w-full justify-center">
           <Tab.Panel>
-            <div className="mt-12 flex flex-col gap-12 pt-6">
+            <div className="gap-12 flex flex-col">
               <StatItem
                 label="Street Cred"
                 value={cred}

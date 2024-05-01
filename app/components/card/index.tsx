@@ -90,8 +90,8 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
 
   return (
     <>
-      <div className="shadow-xl flex flex-col h-full w-full max-w-[400px] max-h-[800px] border border-black rounded-2xl">
-        <div className="flex-1 bg-slate-700 rounded-t-2xl flex flex-col">
+      <div className="shadow-xl flex flex-col h-full w-full lg:max-w-[400px] lg:max-h-[800px] lg:rounded-2xl">
+        <div className="flex-1 bg-slate-700 lg:rounded-t-2xl flex flex-col">
           <h1
             data-testid="rudiment-name"
             className="pl-4 text-white font-semibold pb-16 pt-4 "
@@ -104,7 +104,7 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
             altText={displayedRudiment.name}
           />
         </div>
-        <div className="flex-1 flex bg-[#e65797] rounded-b-2xl">
+        <div className="flex-1 flex bg-[#e65797]">
           {displayedRudiment && (
             <Stats
               rating={displayedRudiment.drum_drills_rating}
@@ -114,48 +114,49 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
             />
           )}
         </div>
-      </div>
-      <div className="flex w-full">
-        <button
-          data-testid="get-rudiment-button"
-          onClick={handleClick}
-          className="flex-1 bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
-        >
-          Random Rudiment!
-        </button>
-        {slider ? (
+
+        <div className="bg-[#e65797] w-full flex lg:rounded-b-2xl">
           <button
-            className="flex-1 bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
-            onClick={toggleSlider}
+            data-testid="get-rudiment-button"
+            onClick={handleClick}
+            className=" w-full bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
           >
-            Close all rudiments
+            Random Rudiment!
           </button>
-        ) : (
-          <button
-            className="flex-1 bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
-            onClick={toggleSlider}
-          >
-            Search all rudiments
-          </button>
-        )}
+          {slider ? (
+            <button
+              className="w-full bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+              onClick={toggleSlider}
+            >
+              Close
+            </button>
+          ) : (
+            <button
+              className="w-full bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+              onClick={toggleSlider}
+            >
+              Search Rudiments
+            </button>
+          )}
+        </div>
+        <AnimatePresence>
+          {slider && (
+            <motion.div
+              initial={{ y: -1000 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.3 }}
+              exit={{ y: -1000 }}
+              className="absolute h-[85%] w-full lg:w-[300px] lg:h-full top-0 lg:right-0 bg-slate-700 text-white"
+            >
+              <RudimentList
+                handleListClick={handleListClick}
+                rudiments={rudiments}
+                toggleSlider={toggleSlider}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-      <AnimatePresence>
-        {slider && (
-          <motion.div
-            initial={{ y: -1000 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.3 }}
-            exit={{ y: -1000 }}
-            className="absolute h-[85%] w-full top-0 bg-slate-700 text-white"
-          >
-            <RudimentList
-              handleListClick={handleListClick}
-              rudiments={rudiments}
-              toggleSlider={toggleSlider}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 };
