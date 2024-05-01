@@ -65,6 +65,9 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
         info: "",
       }
     );
+    if (slider) {
+      setSlider(false);
+    }
   };
 
   const handleListClick = (id: number) => {
@@ -112,24 +115,24 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
           )}
         </div>
       </div>
-      <div>
+      <div className="flex w-full">
         <button
           data-testid="get-rudiment-button"
           onClick={handleClick}
-          className="bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+          className="flex-1 bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
         >
           Random Rudiment!
         </button>
         {slider ? (
           <button
-            className="bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+            className="flex-1 bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
             onClick={toggleSlider}
           >
             Close all rudiments
           </button>
         ) : (
           <button
-            className="bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+            className="flex-1 bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
             onClick={toggleSlider}
           >
             Search all rudiments
@@ -143,7 +146,7 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
             animate={{ y: 0 }}
             transition={{ duration: 0.3 }}
             exit={{ y: -1000 }}
-            className="absolute h-[80%] w-full top-0 bg-slate-700 text-white"
+            className="absolute h-[85%] w-full top-0 bg-slate-700 text-white"
           >
             <RudimentList
               handleListClick={handleListClick}
