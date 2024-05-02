@@ -87,4 +87,81 @@ export const rudiments = [
     image_black: "",
     info: "Like this rudiment? You'll love the 'Slurred Six Stroke Roll': Same sticking but with even note values. Drummer to checkout = Keith Carlock",
   },
+  {
+    id: 9,
+    name: "Seven Stroke Roll",
+    drum_drills_rating: 55,
+    complexity: 45,
+    street_cred: 25,
+    image_white:
+      "https://drum-drills-rudiments.s3.eu-north-1.amazonaws.com/first-40-white/Seven+Stroke+Roll+-+White.png",
+    image_black: "",
+    info: "Work on these in triplets too. Remember to practice alternate sticking.",
+  },
+  {
+    id: 10,
+    name: "Nine Stroke Roll",
+    drum_drills_rating: 65,
+    complexity: 25,
+    street_cred: 35,
+    image_white:
+      "https://drum-drills-rudiments.s3.eu-north-1.amazonaws.com/first-40-white/Nine+Stroke+Roll+-+White.png",
+    image_black: "",
+    info: "Subdivide in 16th notes and double up the stickings.",
+  },
+  {
+    id: 11,
+    name: "Ten Stroke Roll",
+    drum_drills_rating: 65,
+    complexity: 25,
+    street_cred: 35,
+    image_white:
+      "https://drum-drills-rudiments.s3.eu-north-1.amazonaws.com/first-40-white/Ten+Stroke+Roll+-+White.png",
+    image_black: "",
+    info: "Remember there are only two dynamics, aim for even stick heights.",
+  },
+  {
+    id: 12,
+    name: "Eleven Stroke Roll",
+    drum_drills_rating: 65,
+    complexity: 25,
+    street_cred: 35,
+    image_white:
+      "https://drum-drills-rudiments.s3.eu-north-1.amazonaws.com/first-40-white/Eleven+Stroke+Roll+-+White.png",
+    image_black: "",
+    info: "You could think of beat two and four as drags. Remember we want even doubles, no buzzing here.",
+  },
+  {
+    id: 13,
+    name: "Thirteen Stroke Roll",
+    drum_drills_rating: 25,
+    complexity: 75,
+    street_cred: 50,
+    image_white:
+      "https://drum-drills-rudiments.s3.eu-north-1.amazonaws.com/first-40-white/Thirteen+Stroke+Roll+-+White.png",
+    image_black: "",
+    info: "Getting lost? You're not subdividing! 1e&a 2e&",
+  },
+  {
+    id: 14,
+    name: "Fifteen Stroke Roll",
+    drum_drills_rating: 13,
+    complexity: 12,
+    street_cred: 5,
+    image_white:
+      "https://drum-drills-rudiments.s3.eu-north-1.amazonaws.com/first-40-white/Fifteen+Stroke+Roll+-+White.png",
+    image_black: "",
+    info: "Perfmance idea: Have you tried putting the accented notes on the toms or cymbals?",
+  },
+  {
+    id: 15,
+    name: "Seventeen Stroke Roll",
+    drum_drills_rating: 35,
+    complexity: 37,
+    street_cred: 15,
+    image_white:
+      "https://drum-drills-rudiments.s3.eu-north-1.amazonaws.com/first-40-white/Seventeen+Stroke+Roll+-+White.png",
+    image_black: "",
+    info: "The final roll rudiment. To improve your doubles in general, work on 'Alternating flams' and 'Pull outs'",
+  },
 ];

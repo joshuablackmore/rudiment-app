@@ -26,7 +26,7 @@ const RudimentList: React.FC<RudimentListProps> = ({
   const filteredRudiments = getFilteredRudiments(query, rudiments);
 
   return (
-    <div className="flex flex-col mt-24">
+    <div className="flex flex-col lg:mt-24">
       <div className="mt-12 self-center">
         <input
           type="text"
