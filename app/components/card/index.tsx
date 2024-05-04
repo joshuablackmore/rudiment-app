@@ -91,20 +91,23 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
   return (
     <>
       <div className="shadow-xl flex flex-col h-full w-full lg:max-w-[400px] lg:max-h-[800px] lg:rounded-2xl">
-        <div className="flex-1 bg-slate-600 dark:bg-slate-900 lg:rounded-t-2xl flex flex-col">
+        <div className="flex-1 bg-[#B5C0D0] dark:bg-slate-900 lg:rounded-t-2xl flex flex-col">
           <h1
             data-testid="rudiment-name"
-            className="pl-4 text-white font-semibold pb-16 pt-4 "
+            className="pl-4 text-black dark:text-white font-semibold pb-16 pt-4 "
           >
             {displayedRudiment.name}
           </h1>
 
-          <RudimentImage
-            url={displayedRudiment.image_white}
-            altText={displayedRudiment.name}
-          />
+          {displayedRudiment.image_white && (
+            <RudimentImage
+              urlWhite={displayedRudiment.image_white}
+              urlBlack={displayedRudiment.image_black}
+              altText={displayedRudiment.name}
+            />
+          )}
         </div>
-        <div className="flex-1 flex bg-[#d4bdbd] dark:bg-[#e65596]">
+        <div className="flex-1 flex bg-[#F0EBE3] dark:bg-[#e65596]">
           {displayedRudiment && (
             <Stats
               rating={displayedRudiment.drum_drills_rating}
@@ -115,24 +118,24 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
           )}
         </div>
 
-        <div className="bg-[#d4bdbd] dark:bg-[#e65596] w-full flex lg:rounded-b-2xl">
+        <div className="bg-[#F5E8DD] dark:bg-[#e65596] w-full flex lg:rounded-b-2xl">
           <button
             data-testid="get-rudiment-button"
             onClick={handleClick}
-            className="w-full bg-slate-600 dark:bg-slate-900 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+            className="w-full bg-[#EED3D9] dark:bg-slate-900 rounded-2xl text-black dark:text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
           >
             Random Rudiment!
           </button>
           {slider ? (
             <button
-              className="w-full bg-slate-600 dark:bg-slate-900 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+              className="w-full bg-[#EED3D9] dark:bg-slate-900 rounded-2xl text-black dark:text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
               onClick={toggleSlider}
             >
               Close
             </button>
           ) : (
             <button
-              className="drop-shadow-2xl w-full bg-slate-600 dark:bg-slate-900 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+              className="drop-shadow-2xl w-full bg-[#EED3D9] dark:bg-slate-900 rounded-2xl text-black dark:text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
               onClick={toggleSlider}
             >
               Search Rudiments

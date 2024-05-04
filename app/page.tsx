@@ -7,7 +7,7 @@ import React from "react";
 
 export default function Home() {
   return (
-    <main className=" flex h-[100dvh] flex-col items-center justify-center lg:flex-row lg:gap-36">
+    <main className="flex h-[100dvh] flex-col items-center justify-center lg:flex-col lg:gap-12 bg-white">
       <ThemeContextProvider>
         <ThemeToggle />
         <Card rudiments={rudiments} />

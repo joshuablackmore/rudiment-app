@@ -1,26 +1,39 @@
+import { useTheme } from "../../contexts/themeContext";
 import Image from "next/image";
 import React from "react";
 
 export type RudimentImageProps = {
-  url: string;
+  urlWhite: string;
+  urlBlack: string;
   altText: string;
 };
 
-const RudimentImage: React.FC<RudimentImageProps> = ({ url, altText }) => {
+const RudimentImage: React.FC<RudimentImageProps> = ({
+  urlWhite,
+  altText,
+  urlBlack,
+}) => {
+  const { theme } = useTheme();
   return (
-    <div className="relative h-[50%] " data-testid="images">
-      {url ? (
+    <div className="relative h-[50%] ">
+      {theme === "light" ? (
         <Image
-          src={url}
+          src={urlBlack}
           alt={altText}
           fill={true}
           objectFit="contain"
           className=""
+          data-testid="images"
         />
       ) : (
-        <div className="flex flex-col items-center justify-center text-center h-full text-white text-2xl font-extrabold">
-          <h1>Welcome to the Drum Drills Rudiment App!</h1>
-        </div>
+        <Image
+          src={urlWhite}
+          alt={altText}
+          fill={true}
+          objectFit="contain"
+          className=""
+          data-testid="images"
+        />
       )}
     </div>
   );

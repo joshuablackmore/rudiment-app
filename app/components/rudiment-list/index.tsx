@@ -19,7 +19,6 @@ const getFilteredRudiments = (query: string, items: RudimentProps[]) => {
 const RudimentList: React.FC<RudimentListProps> = ({
   rudiments,
   handleListClick,
-  toggleSlider,
 }) => {
   const [query, setQuery] = React.useState("");
 

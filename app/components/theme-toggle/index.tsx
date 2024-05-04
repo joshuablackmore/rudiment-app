@@ -18,8 +18,8 @@ const ThemeToggle = () => {
   }, [theme]);
 
   return (
-    <div className="w-full bg-slate-600 dark:bg-slate-900">
-      <label className="h-6 text-white  gap-2 flex justify-end items-center">
+    <div className="w-full lg:w-[400px] bg-[#B5C0D0] dark:bg-slate-900 lg:bg-white lg:dark:bg-white ">
+      <label className="h-6 text-Black dark:text-white lg:dark:text-black  gap-2 flex justify-end lg:justify-end  items-center">
         {theme === "light" ? <h1>Light mode</h1> : <h1>Dark mode</h1>}
         <input
           className="right-0 size-4 mr-2"

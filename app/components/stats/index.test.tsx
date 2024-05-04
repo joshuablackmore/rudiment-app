@@ -19,7 +19,7 @@ const mockData: RudStatsProps[] = [
 ];
 
 describe("Stats section", () => {
-  it("renders three panel section buttons", () => {
+  it("renders two panel section buttons", () => {
     render(
       <Stats
         cred={mockData[0].cred}

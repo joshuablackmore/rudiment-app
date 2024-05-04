@@ -45,8 +45,8 @@ const TabButtons = () => {
           <button
             className={
               selected
-                ? "text-white w-full justify-around flex"
-                : "text-white w-full justify-center flex  bg-slate-600 dark:bg-slate-900 hover:text-[#e65797]"
+                ? "text-black dark:text-white w-full justify-around flex"
+                : "text-black/50 dark:text-white w-full justify-center flex  bg-[#B5C0D0] dark:bg-slate-900 hover:text-[#7954A1]"
             }
           >
             {tab}
@@ -70,23 +70,23 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
               <StatItem
                 label="Street Cred"
                 value={cred}
-                className="bg-[#9ad3f1] dark:bg-[#59bbf0]"
+                className="bg-[#CCD3CA] dark:bg-[#59bbf0]"
               />
               <StatItem
                 label="Complexity"
                 value={complexity}
-                className="bg-[#c1e39d] dark:bg-[#6bb120] "
+                className="bg-[#CCD3CA] dark:bg-[#6bb120] "
               />
               <StatItem
                 label="Drum Drills Rating"
                 value={rating}
-                className="bg-[#f4e499] dark:bg-[#fbd416]"
+                className="bg-[#CCD3CA] dark:bg-[#fbd416]"
               />
             </div>
           </Tab.Panel>
           <Tab.Panel className="h-full">
             <div className="flex h-full items-center p-4">
-              <h1 className="text-white text-xl ">{info}</h1>
+              <h1 className="text-black dark:text-white text-xl ">{info}</h1>
             </div>
           </Tab.Panel>
         </Tab.Panels>
