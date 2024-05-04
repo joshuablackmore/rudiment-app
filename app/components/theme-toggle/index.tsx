@@ -1,33 +1,41 @@
 import { useTheme } from "../../contexts/themeContext";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Switch } from "@headlessui/react";
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
+  const [enabled, setEnabled] = useState(false);
 
   const handleThemeChange = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
+    const newEnabled = !enabled;
+    setEnabled(newEnabled);
+    setTheme(newEnabled ? "dark" : "light");
   };
 
   useEffect(() => {
     document.querySelector("html")?.classList.remove("light", "dark");
     document.querySelector("html")?.classList.add(theme);
-  }, [theme]);
+  }, [enabled]);
 
   return (
     <div className="w-full lg:w-[400px] bg-[#B5C0D0] dark:bg-slate-900 lg:bg-white lg:dark:bg-white ">
-      <label className="h-6 text-Black dark:text-white lg:dark:text-black  gap-2 flex justify-end lg:justify-end  items-center">
-        {theme === "light" ? <h1>Light mode</h1> : <h1>Dark mode</h1>}
-        <input
-          className="right-0 size-4 mr-2"
-          type="checkbox"
-          onChange={handleThemeChange}
+      <div className="flex justify-end gap-2 lg:dark:text-black dark:text-white mt-2 mr-2">
+        {theme === "light" ? <h1>dark</h1> : <h1>light</h1>}
+        <Switch
           checked={theme === "dark"}
-        />
-      </label>
+          onChange={handleThemeChange}
+          className={`${
+            enabled ? "bg-blue-600" : "bg-gray-200"
+          } relative inline-flex h-6 w-11 items-center rounded-full`}
+        >
+          <span className="sr-only">Toggle Dark Mode</span>
+          <span
+            className={`${
+              enabled ? "translate-x-6" : "translate-x-1"
+            } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+          />
+        </Switch>
+      </div>
     </div>
   );
 };
