@@ -28,10 +28,9 @@ describe("Stats section", () => {
         info={mockData[0].info}
       />
     );
-    const statsButton = screen.getByRole("tab", { name: /Stats/i });
+    const statsButton = screen.getByRole("tab", { name: /Top Trumps/i });
     expect(statsButton).toBeInTheDocument();
-    const visualsButton = screen.getByRole("tab", { name: /Visual/i });
-    expect(visualsButton).toBeInTheDocument();
+
     const infoButton = screen.getByRole("tab", { name: /Notes/i });
     expect(infoButton).toBeInTheDocument();
   });

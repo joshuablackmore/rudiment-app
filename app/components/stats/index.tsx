@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { Tab } from "@headlessui/react";
-import VisualStats from "../visual";
 
 export type RudStatsProps = {
   cred: number;
@@ -36,7 +35,7 @@ const StatItem: React.FC<StatItemProps> = ({ value, label, className }) => {
   );
 };
 
-const tabs = ["Stats", "Visual", "Notes"];
+const tabs = ["Top Trumps", "Notes"];
 
 const TabButtons = () => {
   return tabs.map((tab, index) => (
@@ -47,7 +46,7 @@ const TabButtons = () => {
             className={
               selected
                 ? "text-white w-full justify-around flex"
-                : "text-white w-full justify-center flex  bg-slate-700 hover:text-[#e65797]"
+                : "text-white w-full justify-center flex  bg-slate-600 dark:bg-slate-900 hover:text-[#e65797]"
             }
           >
             {tab}
@@ -71,22 +70,19 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
               <StatItem
                 label="Street Cred"
                 value={cred}
-                className="bg-[#59bbf0]"
+                className="bg-[#9ad3f1] dark:bg-[#59bbf0]"
               />
               <StatItem
                 label="Complexity"
                 value={complexity}
-                className="bg-[#6bb120]"
+                className="bg-[#c1e39d] dark:bg-[#6bb120] "
               />
               <StatItem
                 label="Drum Drills Rating"
                 value={rating}
-                className="bg-[#fbd416]"
+                className="bg-[#f4e499] dark:bg-[#fbd416]"
               />
             </div>
-          </Tab.Panel>
-          <Tab.Panel className="h-full">
-            <VisualStats cred={cred} rating={rating} complexity={complexity} />
           </Tab.Panel>
           <Tab.Panel className="h-full">
             <div className="flex h-full items-center p-4">

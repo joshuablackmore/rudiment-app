@@ -91,7 +91,7 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
   return (
     <>
       <div className="shadow-xl flex flex-col h-full w-full lg:max-w-[400px] lg:max-h-[800px] lg:rounded-2xl">
-        <div className="flex-1 bg-slate-700 lg:rounded-t-2xl flex flex-col">
+        <div className="flex-1 bg-slate-600 dark:bg-slate-900 lg:rounded-t-2xl flex flex-col">
           <h1
             data-testid="rudiment-name"
             className="pl-4 text-white font-semibold pb-16 pt-4 "
@@ -104,7 +104,7 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
             altText={displayedRudiment.name}
           />
         </div>
-        <div className="flex-1 flex bg-[#e65797]">
+        <div className="flex-1 flex bg-[#d4bdbd] dark:bg-[#e65596]">
           {displayedRudiment && (
             <Stats
               rating={displayedRudiment.drum_drills_rating}
@@ -115,24 +115,24 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
           )}
         </div>
 
-        <div className="bg-[#e65797] w-full flex lg:rounded-b-2xl">
+        <div className="bg-[#d4bdbd] dark:bg-[#e65596] w-full flex lg:rounded-b-2xl">
           <button
             data-testid="get-rudiment-button"
             onClick={handleClick}
-            className=" w-full bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+            className="w-full bg-slate-600 dark:bg-slate-900 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
           >
             Random Rudiment!
           </button>
           {slider ? (
             <button
-              className="w-full bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+              className="w-full bg-slate-600 dark:bg-slate-900 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
               onClick={toggleSlider}
             >
               Close
             </button>
           ) : (
             <button
-              className="w-full bg-slate-700 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+              className="drop-shadow-2xl w-full bg-slate-600 dark:bg-slate-900 rounded-2xl text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
               onClick={toggleSlider}
             >
               Search Rudiments
@@ -146,7 +146,7 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
               animate={{ y: 0 }}
               transition={{ duration: 0.3 }}
               exit={{ y: -1000 }}
-              className="absolute h-[85%] w-full lg:w-[300px] lg:h-full top-0 lg:right-0 bg-slate-700 text-white"
+              className="absolute h-[85%] w-full lg:w-[300px] lg:h-full top-0 lg:right-0 bg-slate-600 dark:bg-slate-900 text-white"
             >
               <RudimentList
                 handleListClick={handleListClick}
