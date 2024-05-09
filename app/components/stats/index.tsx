@@ -39,7 +39,7 @@ const tabs = ["Top Trumps", "Notes"];
 
 const TabButtons = () => {
   return tabs.map((tab, index) => (
-    <Tab as={Fragment}>
+    <Tab key={index} as={Fragment}>
       {({ selected }) => (
         <div className="w-full" key={index}>
           <button
