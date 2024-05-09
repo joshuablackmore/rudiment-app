@@ -63,7 +63,7 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
         image_white: "",
         image_black: "",
         info: "",
-      }
+      },
     );
     if (slider) {
       setSlider(false);
@@ -90,11 +90,11 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
 
   return (
     <>
-      <div className="shadow-xl flex flex-col h-full w-full lg:max-w-[400px] lg:max-h-[800px] lg:rounded-2xl">
-        <div className="flex-1 bg-[#B5C0D0] dark:bg-slate-900 lg:rounded-t-2xl flex flex-col">
+      <div className="flex h-full w-full flex-col shadow-xl lg:max-h-[800px] lg:max-w-[400px] lg:rounded-2xl">
+        <div className="flex flex-1 flex-col bg-[#B5C0D0] dark:bg-slate-900 lg:rounded-t-2xl">
           <h1
             data-testid="rudiment-name"
-            className="pl-4 text-black dark:text-white font-semibold pb-16 pt-4 "
+            className="pb-16 pl-4 pt-4 font-semibold text-black dark:text-white "
           >
             {displayedRudiment.name}
           </h1>
@@ -107,7 +107,7 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
             />
           )}
         </div>
-        <div className="flex-1 flex bg-[#F0EBE3] dark:bg-[#e65596]">
+        <div className="flex flex-1 bg-[#F0EBE3] dark:bg-[#e65596]">
           {displayedRudiment && (
             <Stats
               rating={displayedRudiment.drum_drills_rating}
@@ -118,24 +118,24 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
           )}
         </div>
 
-        <div className="bg-[#F5E8DD] dark:bg-[#e65596] w-full flex lg:rounded-b-2xl">
+        <div className="flex w-full bg-[#F5E8DD] dark:bg-[#e65596] lg:rounded-b-2xl">
           <button
             data-testid="get-rudiment-button"
             onClick={handleClick}
-            className="w-full bg-[#EED3D9] dark:bg-slate-900 rounded-2xl text-black dark:text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+            className="m-4 w-full rounded-2xl bg-[#EED3D9] p-2 text-black transition-all duration-200 hover:bg-[#7954A1] active:text-black dark:bg-slate-900 dark:text-white"
           >
             Random Rudiment!
           </button>
           {slider ? (
             <button
-              className="w-full bg-[#EED3D9] dark:bg-slate-900 rounded-2xl text-black dark:text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+              className="m-4 w-full rounded-2xl bg-[#EED3D9] p-2 text-black transition-all duration-200 hover:bg-[#7954A1] active:text-black dark:bg-slate-900 dark:text-white"
               onClick={toggleSlider}
             >
               Close
             </button>
           ) : (
             <button
-              className="drop-shadow-2xl w-full bg-[#EED3D9] dark:bg-slate-900 rounded-2xl text-black dark:text-white p-2 hover:bg-[#7954A1] transition-all duration-200 active:text-black m-4"
+              className="m-4 w-full rounded-2xl bg-[#EED3D9] p-2 text-black drop-shadow-2xl transition-all duration-200 hover:bg-[#7954A1] active:text-black dark:bg-slate-900 dark:text-white"
               onClick={toggleSlider}
             >
               Search Rudiments
@@ -149,7 +149,7 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
               animate={{ y: 0 }}
               transition={{ duration: 0.3 }}
               exit={{ y: -1000 }}
-              className="absolute h-[85%] w-full lg:w-[300px] lg:h-full top-0 lg:right-0 bg-slate-600 dark:bg-slate-900 text-white"
+              className="absolute top-0 h-[85%] w-full bg-slate-600 text-white dark:bg-slate-900 lg:right-0 lg:h-full lg:w-[300px]"
             >
               <RudimentList
                 handleListClick={handleListClick}

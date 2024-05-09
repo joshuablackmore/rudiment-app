@@ -18,8 +18,8 @@ const ThemeToggle = () => {
   }, [enabled]);
 
   return (
-    <div className="w-full lg:w-[400px] bg-[#B5C0D0] dark:bg-slate-900 lg:bg-white lg:dark:bg-white ">
-      <div className="flex justify-end gap-2 lg:dark:text-black dark:text-white mt-2 mr-2">
+    <div className="w-full bg-[#B5C0D0] dark:bg-slate-900 lg:w-[400px] lg:bg-white lg:dark:bg-white ">
+      <div className="mr-2 mt-2 flex justify-end gap-2 dark:text-white lg:dark:text-black">
         {theme === "light" ? <h1>dark</h1> : <h1>light</h1>}
         <Switch
           checked={theme === "dark"}

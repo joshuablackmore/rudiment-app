@@ -12,7 +12,7 @@ const getFilteredRudiments = (query: string, items: RudimentProps[]) => {
     return items;
   }
   return items.filter((ruds) =>
-    ruds.name.toLowerCase().includes(query.toLocaleLowerCase())
+    ruds.name.toLowerCase().includes(query.toLocaleLowerCase()),
   );
 };
 
@@ -29,7 +29,7 @@ const RudimentList: React.FC<RudimentListProps> = ({
       <div className="mt-12 self-center">
         <input
           type="text"
-          className="mb-4 text-black rounded-sm"
+          className="mb-4 rounded-sm text-black"
           placeholder="search"
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -37,7 +37,7 @@ const RudimentList: React.FC<RudimentListProps> = ({
           {filteredRudiments.map((rud, index) => (
             <li key={index}>
               <h1
-                className="hover:text-[#e65797] cursor-pointer"
+                className="cursor-pointer hover:text-[#e65797]"
                 onClick={() => handleListClick(rud.id)}
               >
                 {rud.name}
