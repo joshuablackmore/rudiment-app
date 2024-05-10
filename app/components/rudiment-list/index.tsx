@@ -1,5 +1,5 @@
+import { RudimentProps } from "@/app/contexts/appContext";
 import React from "react";
-import { RudimentProps } from "../card";
 
 type RudimentListProps = {
   rudiments: RudimentProps[];
@@ -25,7 +25,7 @@ const RudimentList: React.FC<RudimentListProps> = ({
   const filteredRudiments = getFilteredRudiments(query, rudiments);
 
   return (
-    <div className="flex flex-col lg:mt-24">
+    <div className="flex flex-col">
       <div className="mt-12 self-center">
         <input
           type="text"
@@ -37,7 +37,7 @@ const RudimentList: React.FC<RudimentListProps> = ({
           {filteredRudiments.map((rud, index) => (
             <li key={index}>
               <h1
-                className="cursor-pointer hover:text-[#e65797]"
+                className="cursor-pointer text-black hover:text-[#e65797] dark:text-white dark:hover:text-[#e65797]"
                 onClick={() => handleListClick(rud.id)}
               >
                 {rud.name}

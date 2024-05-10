@@ -1,17 +1,17 @@
 "use client";
 import Card from "./components/card";
-import ThemeToggle from "./components/theme-toggle";
 import { rudiments } from "./data/rudiment-data";
-import { ThemeContextProvider } from "./contexts/themeContext";
+import { AppContextProvider } from "./contexts/appContext";
 import React from "react";
+import Header from "./components/header";
 
 export default function Home() {
   return (
-    <main className="flex h-[100dvh] flex-col items-center justify-center lg:flex-col lg:gap-12 bg-white">
-      <ThemeContextProvider>
-        <ThemeToggle />
+    <main className="flex h-[100dvh] flex-col items-center justify-center bg-white lg:flex-col lg:justify-start lg:gap-24">
+      <AppContextProvider>
+        <Header rudiments={rudiments} />
         <Card rudiments={rudiments} />
-      </ThemeContextProvider>
+      </AppContextProvider>
     </main>
   );
 }

@@ -1,25 +1,15 @@
-import { useTheme } from "../../contexts/themeContext";
+import { useRudimentApp } from "../../contexts/appContext";
 import Image from "next/image";
 import React from "react";
 
-export type RudimentImageProps = {
-  urlWhite: string;
-  urlBlack: string;
-  altText: string;
-};
-
-const RudimentImage: React.FC<RudimentImageProps> = ({
-  urlWhite,
-  altText,
-  urlBlack,
-}) => {
-  const { theme } = useTheme();
+const RudimentImage = () => {
+  const { theme, displayedRudiment } = useRudimentApp();
   return (
     <div className="relative h-[50%] ">
       {theme === "light" ? (
         <Image
-          src={urlBlack}
-          alt={altText}
+          src={displayedRudiment.image_black}
+          alt={displayedRudiment.name}
           fill={true}
           objectFit="contain"
           className=""
@@ -27,8 +17,8 @@ const RudimentImage: React.FC<RudimentImageProps> = ({
         />
       ) : (
         <Image
-          src={urlWhite}
-          alt={altText}
+          src={displayedRudiment.image_white}
+          alt={displayedRudiment.name}
           fill={true}
           objectFit="contain"
           className=""

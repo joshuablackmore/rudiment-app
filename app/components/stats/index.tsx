@@ -1,12 +1,6 @@
 import React, { Fragment } from "react";
 import { Tab } from "@headlessui/react";
-
-export type RudStatsProps = {
-  cred: number;
-  rating: number;
-  complexity: number;
-  info: string;
-};
+import { useRudimentApp } from "@/app/contexts/appContext";
 
 type StatItemProps = {
   label: string;
@@ -57,7 +51,8 @@ const TabButtons = () => {
   ));
 };
 
-const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
+const Stats = () => {
+  const { displayedRudiment } = useRudimentApp();
   return (
     <div className="flex h-full w-full flex-col">
       <Tab.Group>
@@ -69,24 +64,26 @@ const Stats: React.FC<RudStatsProps> = ({ rating, cred, complexity, info }) => {
             <div className="flex flex-col gap-12">
               <StatItem
                 label="Street Cred"
-                value={cred}
+                value={displayedRudiment.street_cred}
                 className="bg-[#CCD3CA] dark:bg-[#59bbf0]"
               />
               <StatItem
                 label="Complexity"
-                value={complexity}
+                value={displayedRudiment.complexity}
                 className="bg-[#CCD3CA] dark:bg-[#6bb120] "
               />
               <StatItem
                 label="Drum Drills Rating"
-                value={rating}
+                value={displayedRudiment.drum_drills_rating}
                 className="bg-[#CCD3CA] dark:bg-[#fbd416]"
               />
             </div>
           </Tab.Panel>
           <Tab.Panel className="h-full">
             <div className="flex h-full items-center p-4">
-              <h1 className="text-xl text-black dark:text-white ">{info}</h1>
+              <h1 className="text-xl text-black dark:text-white ">
+                {displayedRudiment.info}
+              </h1>
             </div>
           </Tab.Panel>
         </Tab.Panels>

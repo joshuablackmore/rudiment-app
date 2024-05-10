@@ -1,7 +1,8 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Card, { RudimentProps } from ".";
+import { RudimentProps } from ".";
+import Card from "./";
 
 const generateMockedRudiments = (numberOfRudimentsInApp: number) => {
   const rudiments = [];
