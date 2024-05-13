@@ -18,10 +18,11 @@ const ThemeToggle = () => {
   }, [enabled]);
 
   return (
-    <div className=" flex items-center justify-center bg-[#B5C0D0] dark:bg-slate-900 lg:bg-white  lg:bg-white lg:dark:bg-white ">
+    <div className=" flex items-center justify-center bg-[#B5C0D0] dark:bg-slate-900 lg:bg-white lg:dark:bg-white ">
       <div className="flex justify-end gap-2 dark:text-white lg:dark:text-black">
         {theme === "light" ? <h1>dark</h1> : <h1>light</h1>}
         <Switch
+          data-testid="toggle"
           checked={theme === "dark"}
           onChange={handleThemeChange}
           className={`${

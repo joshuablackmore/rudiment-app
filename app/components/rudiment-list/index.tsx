@@ -4,7 +4,6 @@ import React from "react";
 type RudimentListProps = {
   rudiments: RudimentProps[];
   handleListClick: (id: number) => void;
-  toggleSlider: () => void;
 };
 
 const getFilteredRudiments = (query: string, items: RudimentProps[]) => {

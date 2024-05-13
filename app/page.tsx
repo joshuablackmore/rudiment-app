@@ -7,7 +7,7 @@ import Header from "./components/header";
 
 export default function Home() {
   return (
-    <main className="flex h-[100dvh] flex-col items-center justify-center bg-white lg:flex-col lg:justify-start lg:gap-24">
+    <main className="flex h-[100dvh] flex-col items-center justify-center bg-white lg:flex-col lg:justify-start lg:gap-16">
       <AppContextProvider>
         <Header rudiments={rudiments} />
         <Card rudiments={rudiments} />

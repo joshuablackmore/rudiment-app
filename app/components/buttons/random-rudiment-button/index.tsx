@@ -5,7 +5,7 @@ type ButtonProps = {
   rudiments: RudimentProps[];
 };
 const RandomRudimentButton: React.FC<ButtonProps> = ({ rudiments }) => {
-  const { displayedRudiment, setDisplayedRudiment } = useRudimentApp();
+  const { setDisplayedRudiment } = useRudimentApp();
   const { slider, setSlider } = useRudimentApp();
   const [currentIndex, setCurrentIndex] = React.useState<number>();
 
@@ -44,11 +44,11 @@ const RandomRudimentButton: React.FC<ButtonProps> = ({ rudiments }) => {
   return (
     <div>
       <button
-        data-testid="get-rudiment-button"
+        data-testid="random-button"
         onClick={handleClick}
-        className="flex rounded-xl bg-[#EED3D9] p-2 text-black shadow-sm shadow-black/50 transition-all duration-200 hover:bg-[#7954A1] active:text-black dark:bg-[#e65596] dark:text-white dark:shadow-white/50"
+        className="flex rounded-xl bg-[#EED3D9] p-1 text-sm text-black shadow-sm shadow-black/50 transition-all duration-200 hover:bg-[#7954A1] active:text-black dark:bg-[#e65596] dark:text-white dark:shadow-white/50"
       >
-        Random Rudiment!
+        Random Rudiment
       </button>
     </div>
   );

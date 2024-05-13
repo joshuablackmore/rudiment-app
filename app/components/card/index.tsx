@@ -58,7 +58,6 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
             <RudimentList
               handleListClick={handleListClick}
               rudiments={rudiments}
-              toggleSlider={toggleSlider}
             />
           </motion.div>
         )}

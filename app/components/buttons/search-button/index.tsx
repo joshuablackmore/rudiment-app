@@ -16,14 +16,16 @@ const SearchRudimentsButton = () => {
     <div>
       {slider ? (
         <button
-          className="m-4 flex w-full items-center justify-around rounded-xl bg-[#EED3D9] p-2 text-black drop-shadow-2xl transition-all duration-200 hover:bg-[#7954A1] active:text-black dark:bg-[#e65596] dark:text-white"
+          data-testid="close-slider"
+          className="m-4 flex items-center justify-around gap-2 rounded-xl bg-[#EED3D9] p-1 text-sm text-black drop-shadow-2xl transition-all duration-200 hover:bg-[#7954A1] active:text-black dark:bg-[#e65596] dark:text-white"
           onClick={toggleSlider}
         >
           Search <FaChevronUp />
         </button>
       ) : (
         <button
-          className="m-4 flex w-full items-center justify-around rounded-xl bg-[#EED3D9] p-2 text-black shadow-sm shadow-black/50 transition-all duration-200 hover:bg-[#7954A1] active:text-black dark:bg-[#e65596] dark:text-white dark:shadow-white/50"
+          data-testid="open-slider"
+          className="m-4 flex items-center justify-around gap-2 rounded-xl bg-[#EED3D9] p-1 text-sm text-black shadow-sm shadow-black/50 transition-all duration-200 hover:bg-[#7954A1] active:text-black dark:bg-[#e65596] dark:text-white dark:shadow-white/50"
           onClick={toggleSlider}
         >
           Search <FaChevronDown />

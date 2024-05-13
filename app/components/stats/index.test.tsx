@@ -1,32 +1,17 @@
 import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Stats, { RudStatsProps } from ".";
-
-const mockData: RudStatsProps[] = [
-  {
-    cred: 0,
-    rating: 0,
-    complexity: 0,
-    info: "",
-  },
-  {
-    cred: 10,
-    rating: 20,
-    complexity: 30,
-    info: "the best rudiment",
-  },
-];
+import Stats from ".";
+import { AppContextProvider, RudimentProps } from "@/app/contexts/appContext";
+import RandomRudimentButton from "../buttons/random-rudiment-button";
+import exp from "constants";
 
 describe("Stats section", () => {
   it("renders two panel section buttons", () => {
     render(
-      <Stats
-        cred={mockData[0].cred}
-        rating={mockData[0].rating}
-        complexity={mockData[0].complexity}
-        info={mockData[0].info}
-      />
+      <AppContextProvider>
+        <Stats />
+      </AppContextProvider>,
     );
     const statsButton = screen.getByRole("tab", { name: /Top Trumps/i });
     expect(statsButton).toBeInTheDocument();
@@ -36,12 +21,9 @@ describe("Stats section", () => {
   });
   it("renders stats headings", () => {
     render(
-      <Stats
-        cred={mockData[0].cred}
-        rating={mockData[0].rating}
-        complexity={mockData[0].complexity}
-        info={mockData[0].info}
-      />
+      <AppContextProvider>
+        <Stats />
+      </AppContextProvider>,
     );
 
     const credHeading = screen.getByRole("heading", { name: /Street Cred/i });
@@ -52,5 +34,42 @@ describe("Stats section", () => {
       name: /Drum Drills Rating/i,
     });
     expect(ratingHeading).toBeInTheDocument();
+  });
+  it("renders new stats scores on random button press", async () => {
+    const mockRudiment: RudimentProps[] = [
+      {
+        id: 1,
+        name: "",
+        drum_drills_rating: 1,
+        complexity: 1,
+        street_cred: 1,
+        image_white: "",
+        image_black: "",
+        info: "",
+      },
+    ];
+
+    render(
+      <AppContextProvider>
+        <RandomRudimentButton rudiments={mockRudiment} />
+        <Stats />
+      </AppContextProvider>,
+    );
+    const initialStreetCredValue =
+      screen.getByText(/Street Cred/).nextElementSibling?.textContent;
+    expect(initialStreetCredValue).toBe("0");
+
+    const randomButton = screen.getByTestId("random-button");
+    expect(randomButton).toBeInTheDocument();
+
+    fireEvent.click(randomButton);
+
+    await waitFor(() => {
+      const updatedStreetCredValue =
+        screen.getByText(/Street Cred/).nextElementSibling?.textContent;
+      expect(updatedStreetCredValue).toBe(
+        mockRudiment[0].street_cred.toString(),
+      );
+    });
   });
 });

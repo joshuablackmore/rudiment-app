@@ -13,7 +13,7 @@ const RudimentImage = () => {
           fill={true}
           objectFit="contain"
           className=""
-          data-testid="images"
+          data-testid="images-black"
         />
       ) : (
         <Image
@@ -22,7 +22,7 @@ const RudimentImage = () => {
           fill={true}
           objectFit="contain"
           className=""
-          data-testid="images"
+          data-testid="images-white"
         />
       )}
     </div>
