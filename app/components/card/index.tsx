@@ -37,8 +37,8 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
         ) : (
           <div className="relative flex h-[50%] items-center">
             <h1 className="m-12 text-center text-xl font-bold dark:text-white">
-              Welcome to the Drum Drills Rudiment app. Press 'Random Rudiment'
-              or 'Search' to get started.
+              Welcome to the Drum Drills Rudiment app. Press &#39;Random
+              Rudiment&#39; or &#39;Search&#39; to get started.
             </h1>
           </div>
         )}
