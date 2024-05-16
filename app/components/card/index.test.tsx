@@ -40,13 +40,17 @@ type AppContextProps = {
 };
 
 describe("Card", () => {
-  it("renders a blank rudiment containing no image and empty stats values", () => {
+  it("initially renders a welcome message, blank rudiment with empty stats values", () => {
     render(
       <AppContextProvider>
         <Card rudiments={mockedRudiments} />
       </AppContextProvider>,
     );
 
+    const welcomeMessage = screen.getByText(
+      /Welcome to the Drum Drills Rudiment app. Press 'Random Rudiment' or 'Search' to get started/i,
+    );
+    expect(welcomeMessage).toBeInTheDocument();
     const stats = screen.getByTestId("stats-section");
     expect(stats).toBeVisible();
     const emptyValue =

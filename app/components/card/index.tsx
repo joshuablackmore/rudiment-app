@@ -32,7 +32,16 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
           {displayedRudiment.name}
         </h1>
 
-        {displayedRudiment.image_white && <RudimentImage />}
+        {displayedRudiment.image_white ? (
+          <RudimentImage />
+        ) : (
+          <div className="relative flex h-[50%] items-center">
+            <h1 className="m-12 text-center text-xl font-bold dark:text-white">
+              Welcome to the Drum Drills Rudiment app. Press 'Random Rudiment'
+              or 'Search' to get started.
+            </h1>
+          </div>
+        )}
       </div>
       <div className="flex flex-1 bg-[#F0EBE3] dark:bg-[#e65596]">
         <Stats />
