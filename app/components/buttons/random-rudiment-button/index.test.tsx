@@ -2,11 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import RandomRudimentButton from ".";
-import {
-  AppContextProvider,
-  RudimentProps,
-  useRudimentApp,
-} from "@/app/contexts/appContext";
+import { AppContextProvider, RudimentProps } from "@/app/contexts/appContext";
 
 const initialRudiment: RudimentProps[] = [
   {

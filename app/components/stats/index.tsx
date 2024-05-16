@@ -54,7 +54,7 @@ const TabButtons = () => {
 const Stats = () => {
   const { displayedRudiment } = useRudimentApp();
   return (
-    <div className="flex h-full w-full flex-col">
+    <div data-testid="stats-section" className="flex h-full w-full flex-col">
       <Tab.Group>
         <Tab.List className="flex">
           <TabButtons />

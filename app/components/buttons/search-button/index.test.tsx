@@ -1,11 +1,17 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  getByTestId,
+  waitFor,
+} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { AppContextProvider } from "@/app/contexts/appContext";
 import SearchRudimentsButton from ".";
 
 describe("SearchRudimentButton", () => {
-  it("renders an down arrow before button press", () => {
+  it("renders a down arrow before button press", async () => {
     render(
       <AppContextProvider>
         <SearchRudimentsButton />
@@ -16,7 +22,9 @@ describe("SearchRudimentButton", () => {
     expect(openButton).toBeInTheDocument();
     fireEvent.click(openButton);
 
-    const closeButton = screen.getByTestId("close-slider");
-    expect(closeButton).toBeInTheDocument();
+    await waitFor(() => {
+      const closeButton = screen.getByTestId("close-slider");
+      expect(closeButton).toBeInTheDocument();
+    });
   });
 });

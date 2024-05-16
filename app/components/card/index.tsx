@@ -22,14 +22,6 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
     setSlider(false);
   };
 
-  const toggleSlider = () => {
-    if (!slider) {
-      setSlider(true);
-    } else if (slider) {
-      setSlider(false);
-    }
-  };
-
   return (
     <div className="flex h-full w-full flex-col shadow-xl lg:max-h-[800px] lg:max-w-[400px] lg:rounded-2xl">
       <div className="flex flex-1 flex-col bg-[#B5C0D0] pt-4 dark:bg-slate-900 lg:rounded-t-2xl">
@@ -43,12 +35,13 @@ const Card: React.FC<CardProps> = ({ rudiments }) => {
         {displayedRudiment.image_white && <RudimentImage />}
       </div>
       <div className="flex flex-1 bg-[#F0EBE3] dark:bg-[#e65596]">
-        {displayedRudiment && <Stats />}
+        <Stats />
       </div>
 
       <AnimatePresence>
         {slider && (
           <motion.div
+            data-testid="rudiment-list"
             initial={{ y: -1000 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.3 }}

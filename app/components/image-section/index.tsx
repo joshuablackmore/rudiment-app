@@ -10,18 +10,16 @@ const RudimentImage = () => {
         <Image
           src={displayedRudiment.image_black}
           alt={displayedRudiment.name}
-          fill={true}
-          objectFit="contain"
-          className=""
+          fill
+          style={{ objectFit: "contain" }}
           data-testid="images-black"
         />
       ) : (
         <Image
           src={displayedRudiment.image_white}
           alt={displayedRudiment.name}
-          fill={true}
-          objectFit="contain"
-          className=""
+          fill
+          style={{ objectFit: "contain" }}
           data-testid="images-white"
         />
       )}
