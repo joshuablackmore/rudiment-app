@@ -36,6 +36,7 @@ const RudimentList: React.FC<RudimentListProps> = ({
           {filteredRudiments.map((rud, index) => (
             <li key={index}>
               <h1
+                data-testid="rudiment-items"
                 className="cursor-pointer text-black hover:text-[#e65797] dark:text-white dark:hover:text-[#e65797]"
                 onClick={() => handleListClick(rud.id)}
               >

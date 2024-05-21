@@ -33,4 +33,18 @@ describe("RudimentList", () => {
     const searchBox = screen.getByPlaceholderText("search");
     expect(searchBox).toBeInTheDocument();
   });
+
+  it("renders the list of rudiments", () => {
+    render(
+      <AppContextProvider>
+        <RudimentList
+          rudiments={rudiments}
+          handleListClick={mockHandleListClick}
+        />
+      </AppContextProvider>,
+    );
+
+    const rudimentItems = screen.getByTestId("rudiment-items");
+    expect(rudimentItems).toBeInTheDocument();
+  });
 });

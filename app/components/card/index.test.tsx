@@ -8,7 +8,7 @@ import {
   RudimentProps,
 } from "@/app/contexts/appContext";
 
-const mockedRudiments: RudimentProps[] = [
+export const mockedRudiments: RudimentProps[] = [
   {
     id: 0,
     name: "",
@@ -30,7 +30,7 @@ const mockedRudiments: RudimentProps[] = [
     info: "mocked info",
   },
 ];
-type AppContextProps = {
+export type AppContextProps = {
   theme: string;
   setTheme: (theme: string) => void;
   displayedRudiment: RudimentProps[];
